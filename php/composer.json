@@ -1,0 +1,13 @@
+{
+    "name": "pande/php",
+    "description": "Test doang",
+    "require": {
+        "php-amqplib/php-amqplib": "^3.0"
+    },
+    "authors": [
+        {
+            "name": "Pande Putu Widya Oktapratama",
+            "email": "widya.oktapratama@gmail.com"
+        }
+    ]
+}
