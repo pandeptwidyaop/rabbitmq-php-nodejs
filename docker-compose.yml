@@ -5,3 +5,10 @@ services:
     ports:
       - 15672:15672
       - 5672:5672
+    networks: 
+      btw:
+        aliases: 
+          - rabbitmq
+networks: 
+  btw:
+    external: true

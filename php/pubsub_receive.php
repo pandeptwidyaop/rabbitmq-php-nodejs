@@ -9,7 +9,7 @@ $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
 $channel = $connection->channel();
 $channel->exchange_declare('GLOBAL_X', 'topic', false, false, false);
 $channel->queue_declare($sName, false, false, false, false);
-$routingKeys = ['user.data'];
+$routingKeys = ['user.created'];
 foreach ($routingKeys as $key) {
     $channel->queue_bind($sName, 'GLOBAL_X', $key);
 }

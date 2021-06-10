@@ -10,16 +10,19 @@ amqp.connect("amqp://localhost",function(error0, connection) {
             autoDelete: false,
         })
 
-        let queue = 'app'
+        let queue = 'app04'
 
         channel.assertQueue(queue, {exclusive: false, durable: false}, function(error2){
             if (error2) throw error2
 
-           channel.bindQueue(queue,'GLOBAL_X','user.data')
+           channel.bindQueue(queue,'GLOBAL_X','user.created')
+
+           console.log("Ready To Go")
 
             channel.consume(queue, function(msg){
                 console.log(`[${msg.fields.routingKey}] ${msg.content.toString()}`)
-            }, {noAck: true})
+                channel.ack(msg)
+            })
         })        
     })
 })
