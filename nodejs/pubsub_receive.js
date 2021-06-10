@@ -15,11 +15,11 @@ amqp.connect("amqp://localhost",function(error0, connection) {
         channel.assertQueue(queue, {exclusive: false, durable: false}, function(error2){
             if (error2) throw error2
 
-           channel.bindQueue(queue,'GLOBAL_X','user.created', )
+           channel.bindQueue(queue,'GLOBAL_X','user.data')
 
             channel.consume(queue, function(msg){
-                console.log(msg.content.toString())
-            })
+                console.log(`[${msg.fields.routingKey}] ${msg.content.toString()}`)
+            }, {noAck: true})
         })        
     })
 })
