@@ -5,12 +5,13 @@ amqp.connect("amqp://localhost",function(error0, connection) {
 
     connection.createChannel(function(error1, channel){
         if(error1) throw error1
+        
         channel.assertExchange("GLOBAL_X",'topic',{
             durable: false,
             autoDelete: false,
         })
 
-        let queue = 'app04'
+        let queue = 'app'
 
         channel.assertQueue(queue, {exclusive: false, durable: false}, function(error2){
             if (error2) throw error2

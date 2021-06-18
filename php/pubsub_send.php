@@ -6,7 +6,7 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
 $to = $argv[1] ?: '';
-$connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+$connection = new AMQPStreamConnection('localhost', 5672, 'VDg4E2VmLiixTctaC8gd19cgxICI0nEq', 'RD1Hp1qjGUVTdOqmW2ZYPVXrDRIsnJE2');
 $channel = $connection->channel();
 
 $channel->exchange_declare('GLOBAL_X', 'topic', false, false, false);

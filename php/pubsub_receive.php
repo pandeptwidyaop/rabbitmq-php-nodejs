@@ -5,7 +5,7 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 
 $sName = $argv[1] ?: 'app';
 
-$connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+$connection = new AMQPStreamConnection('localhost', 5672, 'VDg4E2VmLiixTctaC8gd19cgxICI0nEq', 'RD1Hp1qjGUVTdOqmW2ZYPVXrDRIsnJE2');
 $channel = $connection->channel();
 $channel->exchange_declare('GLOBAL_X', 'topic', false, false, false);
 $channel->queue_declare($sName, false, false, false, false);
